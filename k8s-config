@@ -1,7 +1,7 @@
 apiVersion: v1
 clusters:
 - cluster:
-    server: http://microk8s.tntformacion.com:8080
+    server: http://k8s.tntformacion.com:8080
   name: microk8s-cluster
 contexts:
 - context:
