@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  
+  airports-app:
+    image: nexus.tntformacion.com:10000/devops/airports-app:0.3.0
+    environment:
+      DATABASE_HOST: 'airports-db'
+      DATABASE_PORT: '3306'
+      DATABASE_NAME: 'devops'
+      DATABASE_USER: 'devops'
+      DATABASE_PASS: ${DATABASE_PASS}
+    links:
+    - airports-db
+    depends_on:
+    - airports-db
+    ports:
+    - "8070:8080"
+    networks:
+    - airports
+
+  airports-db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: 'devops'
+      MYSQL_USER: 'devops'
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+    - airports
+    
+  airlines-app:
+     build:
+       context: ..
+       dockerfile: Dockerfile
+     environment:
+       AIRPORTS_URL: airports-app:8080
+     depends_on:
+     - airports-app
+     links:
+     - airports-app
+     ports:
+     - "8089:8080"
+     networks:
+     - airports
+
+volumes:
+  db_data:
+
+networks:
+  airports:
+  
