@@ -1,4 +1,4 @@
-package es.serban.airlines.rest;
+package com.autentia.airlines.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
-import es.serban.airlines.model.Airport;
+import com.autentia.airlines.model.Airport;
 
 @RestController
 @RefreshScope

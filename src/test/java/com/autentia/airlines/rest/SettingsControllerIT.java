@@ -1,4 +1,4 @@
-package es.serban.airlines.rest;
+package com.autentia.airlines.rest;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -13,7 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import es.serban.airlines.config.SettingsConfig;
+import com.autentia.airlines.config.SettingsConfig;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)

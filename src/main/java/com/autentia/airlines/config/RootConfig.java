@@ -1,4 +1,4 @@
-package es.serban.airlines.config;
+package com.autentia.airlines.config;
 
 import org.springframework.cloud.context.restart.RestartEndpoint;
 import org.springframework.context.annotation.Bean;
